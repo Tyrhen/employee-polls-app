@@ -1,9 +1,14 @@
 import { Button, Select, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { useGetUsersQuery } from "../app/reducers/apiReducer";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../app/reducers/authUserReducer";
 
 export default function Login() {
   const { data: users, isLoading } = useGetUsersQuery();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
 
@@ -16,7 +21,8 @@ export default function Login() {
 
   const handlePasswordValidation = () => {
     if (passwordValue === users[selectValue].password) {
-      alert("You are logged in!");
+      dispatch(loginUser(selectValue));
+      navigate("/");
     } else {
       alert("Wrong password");
     }
