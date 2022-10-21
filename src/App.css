@@ -29,11 +29,23 @@
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
+    stroke: #cf4de9;
+  }
+  25% {
+    transform: rotate(-3deg);
+    stroke: #f61818;
   }
   50% {
+    transform: rotate(1deg);
     transform: translateY(10px);
+    stroke: #eaa40c;
+  }
+  75% {
+    transform: rotate(3deg);
+    stroke: #4a67f8;
   }
   100% {
     transform: translateY(0px);
+    stroke: #cf4de9;
   }
 }
