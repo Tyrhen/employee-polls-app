@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
+import { MantineProvider, ColorSchemeProvider, Header } from "@mantine/core";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import DisplayModeButton from "./components/DisplayMode";
@@ -22,9 +22,10 @@ export default function App() {
         withGlobalStyles
         withNormalizeCSS
       >
-        <DisplayModeButton />
-        <LogoutButton />
-
+        <Header height={50}>
+          <LogoutButton />
+          <DisplayModeButton />
+        </Header>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
