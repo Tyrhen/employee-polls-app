@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import AvatarProfile from "../components/AvatarProfile";
 import { Table } from "@mantine/core";
+import AvatarProfile from "../atoms/AvatarProfile";
 
 const Leaderboard = () => {
   const users = useSelector((state) => state.users.value);

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { MantineProvider, ColorSchemeProvider, Header } from "@mantine/core";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import DisplayModeButton from "./components/DisplayMode";
-import { Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Navigation from "./components/Navigation";
-import { fetchPolls } from "./app/reducers/pollReducer";
-import { fetchUsers } from "./app/reducers/userReducer";
 import { useDispatch } from "react-redux";
-import PollDetail from "./components/PollDetail";
-import Leaderboard from "./pages/Leaderboard";
+import { fetchPolls } from "../redux/reducers/pollReducer";
+import { fetchUsers } from "../redux/reducers/userReducer";
+import Navigation from "../components/atoms/Navigation";
+import { Routes, Route } from "react-router";
+import ProtectedRoute from "../components/atoms/ProtectedRoute";
+import Login from "../components/molecules/Login";
+import PollDetail from "../components/molecules/PollDetail";
+import Dashboard from "../components/molecules/Dashboard";
+import Leaderboard from "../components/molecules/Leaderboard";
+import DisplayModeButton from "../components/atoms/DisplayModeButton";
 
 export default function App() {
   const dispatch = useDispatch();

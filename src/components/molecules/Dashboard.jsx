@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Tabs } from "@mantine/core";
 import { IconCircleDashed, IconCircleCheck } from "@tabler/icons";
-import PollList from "../components/PollList";
+import PollList from "./PollList";
 
 export default function Dashboard() {
   const authUser = useSelector((state) => state.authUser.value);

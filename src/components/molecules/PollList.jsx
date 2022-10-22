@@ -1,4 +1,4 @@
-import PollDetailCard from "./PollCard";
+import PollDetailCard from "../atoms/PollCard";
 
 const PollList = ({ polls, isAnswered }) => {
   console.log(polls);
