@@ -180,8 +180,22 @@ export function _saveQuestion(question) {
         [formattedQuestion.id]: formattedQuestion,
       };
 
+      users = {
+        ...users,
+        [question.author]: {
+          ...users[question.author],
+          questions: users[question.author].questions.concat([
+            formattedQuestion.id,
+          ]),
+        },
+      };
+
+      console.log(users[question.author]);
+
       resolve(formattedQuestion);
     }, 1000);
+
+    return formattedQuestion.id;
   });
 }
 
