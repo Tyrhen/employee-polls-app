@@ -7,11 +7,14 @@ import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LogoutButton from "./components/Logout";
 import { fetchPolls } from "./app/reducers/pollReducer";
+import { fetchUsers } from "./app/reducers/userReducer";
 import { useDispatch } from "react-redux";
 
 export default function App() {
   const dispatch = useDispatch();
   dispatch(fetchPolls());
+  dispatch(fetchUsers());
+
   const [colorScheme, setColorScheme] = useState("dark");
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
