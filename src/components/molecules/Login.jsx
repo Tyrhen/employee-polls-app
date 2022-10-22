@@ -1,24 +1,22 @@
 import { Button, Select, TextInput, Stack, Grid } from "@mantine/core";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   IconAdjustmentsHorizontal,
   IconAdjustmentsAlt,
   IconMasksTheater,
 } from "@tabler/icons";
-import { useGetUsersQuery } from "../../redux/reducers/apiReducer";
+
 import { loginUser } from "../../redux/reducers/authUserReducer";
 import "../../css/App.css";
 
 export default function Login() {
-  const { data: users, isLoading } = useGetUsersQuery();
+  const users = useSelector((state) => state.users.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
-
-  if (isLoading) return <div>Loading...</div>;
 
   const options = Object.keys(users).map((user) => ({
     label: users[user].name,
