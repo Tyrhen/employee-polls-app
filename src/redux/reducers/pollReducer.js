@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { _getQuestions, _saveQuestion, _saveQuestionAnswer } from "../../_DATA";
+import {
+  _getQuestions,
+  _saveQuestion,
+  _saveQuestionAnswer,
+} from "../../data/_DATA";
 
 export const fetchPolls = createAsyncThunk("getPolls", async () => {
   const response = await _getQuestions();

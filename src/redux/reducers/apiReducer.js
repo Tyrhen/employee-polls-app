@@ -1,5 +1,5 @@
-import { _getUsers } from "../../_DATA";
 import { createApi } from "@reduxjs/toolkit/query/react";
+import { _getUsers } from "../../data/_DATA";
 
 const baseQuery = () => () => {
   return { data: "" };

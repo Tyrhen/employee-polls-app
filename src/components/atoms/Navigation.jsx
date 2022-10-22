@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
 import { useDispatch } from "react-redux";
-import { logOutUser } from "../app/reducers/authUserReducer";
+import { logOutUser } from "../../redux/reducers/authUserReducer";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 

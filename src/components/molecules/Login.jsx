@@ -1,15 +1,15 @@
 import { Button, Select, TextInput, Stack, Grid } from "@mantine/core";
 import { useState } from "react";
-import { useGetUsersQuery } from "../app/reducers/apiReducer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../app/reducers/authUserReducer";
 import {
   IconAdjustmentsHorizontal,
   IconAdjustmentsAlt,
   IconMasksTheater,
 } from "@tabler/icons";
-import "../App.css";
+import { useGetUsersQuery } from "../../redux/reducers/apiReducer";
+import { loginUser } from "../../redux/reducers/authUserReducer";
+import "../../css/App.css";
 
 export default function Login() {
   const { data: users, isLoading } = useGetUsersQuery();

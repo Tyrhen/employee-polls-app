@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AvatarProfile from "./AvatarProfile";
+import AvatarProfile from "../atoms/AvatarProfile";
 
 const PollDetail = () => {
   const { id } = useParams();
