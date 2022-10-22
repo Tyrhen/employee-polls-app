@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Tabs } from "@mantine/core";
 import { IconCircleDashed, IconCircleCheck } from "@tabler/icons";
-import PollDetailList from "../components/PollDetailList";
+import PollList from "../components/PollList";
 
 export default function Dashboard() {
   const authUser = useSelector((state) => state.authUser.value);
@@ -27,8 +27,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <h2>{authUser}</h2>
+      <h2>Welcome, {authUser}!</h2>
       <Tabs defaultValue="unanswered">
         <Tabs.List>
           <Tabs.Tab value="unanswered" icon={<IconCircleDashed size={14} />}>
@@ -39,10 +38,10 @@ export default function Dashboard() {
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="answered" pt="xs">
-          <PollDetailList polls={answeredPolls} isAnswered={true} />
+          <PollList polls={answeredPolls} isAnswered={true} />
         </Tabs.Panel>
         <Tabs.Panel value="unanswered" pt="xs">
-          <PollDetailList polls={unansweredPolls} isAnswered={false} />
+          <PollList polls={unansweredPolls} isAnswered={false} />
         </Tabs.Panel>
       </Tabs>
     </div>
