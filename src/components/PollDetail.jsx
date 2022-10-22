@@ -1,11 +1,8 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Avatar } from "@mantine/core";
 import AvatarProfile from "./AvatarProfile";
+
 const PollDetail = () => {
-  //grab the polls from the redux store using the useSelector hook
-  const location = useLocation();
-  const navigate = useNavigate();
   const { id } = useParams();
 
   const polls = useSelector((state) => state.polls.value);
