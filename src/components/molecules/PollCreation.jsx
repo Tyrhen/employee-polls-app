@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "@mantine/form";
 import { Group, Button, TextInput, Box } from "@mantine/core";
@@ -6,6 +6,7 @@ import { createNewPoll } from "../../redux/reducers/pollReducer";
 import { fetchUsers } from "../../redux/reducers/userReducer";
 
 const PollCreation = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const authUser = useSelector((state) => state.authUser.value);
   const form = useForm({
@@ -21,10 +22,11 @@ const PollCreation = () => {
       optionTwoText: values.optionTwo,
       author: authUser,
     };
+
     dispatch(createNewPoll(payload));
     dispatch(fetchUsers());
 
-    return <Navigate to="/" />;
+    navigate("/");
   };
 
   return (
