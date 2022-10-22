@@ -5,10 +5,12 @@ import Dashboard from "./pages/Dashboard";
 import DisplayModeButton from "./components/DisplayMode";
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
-import LogoutButton from "./components/Logout";
+import Navigation from "./components/Navigation";
 import { fetchPolls } from "./app/reducers/pollReducer";
 import { fetchUsers } from "./app/reducers/userReducer";
 import { useDispatch } from "react-redux";
+import PollDetail from "./components/PollDetail";
+import Leaderboard from "./pages/Leaderboard";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -30,19 +32,16 @@ export default function App() {
         withNormalizeCSS
       >
         <Header height={50}>
-          <LogoutButton />
+          <Navigation />
           <DisplayModeButton />
         </Header>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/poll/:id" element={<PollDetail />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+          </Route>
         </Routes>
       </MantineProvider>
     </ColorSchemeProvider>
