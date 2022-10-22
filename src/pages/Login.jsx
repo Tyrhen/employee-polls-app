@@ -1,9 +1,15 @@
-import { Button, Select, TextInput } from "@mantine/core";
+import { Button, Select, TextInput, Stack, Grid } from "@mantine/core";
 import { useState } from "react";
 import { useGetUsersQuery } from "../app/reducers/apiReducer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../app/reducers/authUserReducer";
+import {
+  IconAdjustmentsHorizontal,
+  IconAdjustmentsAlt,
+  IconMasksTheater,
+} from "@tabler/icons";
+import "../App.css";
 
 export default function Login() {
   const { data: users, isLoading } = useGetUsersQuery();
@@ -34,26 +40,52 @@ export default function Login() {
 
   return (
     <>
-      <Select
-        label="Username"
-        value={selectValue}
-        onChange={setSelectValue}
-        data={options}
-      />
-      <TextInput
-        placeholder="Your name"
-        disabled={selectValue === null}
-        onChange={handlePasswordChange}
-        label="Password"
-        withAsterisk
-      />
-      <Button
-        variant="gradient"
-        onClick={handlePasswordValidation}
-        gradient={{ from: "indigo", to: "cyan" }}
+      <Grid justify="center">
+        <Grid.Col span={2}>
+          <IconAdjustmentsHorizontal className="App-logo" size={60} />
+        </Grid.Col>
+        <Grid.Col span={2}>
+          <IconMasksTheater className="App-logo" size={60} />
+        </Grid.Col>
+        <Grid.Col span={2}>
+          <IconAdjustmentsAlt className="App-logo" size={60} />
+        </Grid.Col>
+      </Grid>
+
+      <Stack
+        spacing="xl"
+        justify="space-between"
+        sx={(theme) => ({
+          backgroundColor:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[8]
+              : theme.colors.gray[0],
+          height: 300,
+        })}
       >
-        Login
-      </Button>
+        <Select
+          label="Username"
+          value={selectValue}
+          onChange={setSelectValue}
+          data={options}
+        />
+        <TextInput
+          placeholder="Your name"
+          disabled={selectValue === null}
+          onChange={handlePasswordChange}
+          label="Password"
+          withAsterisk
+        />
+        <Button
+          variant="gradient"
+          onClick={handlePasswordValidation}
+          padding="xl"
+          width={150}
+          gradient={{ from: "indigo", to: "cyan" }}
+        >
+          Login
+        </Button>
+      </Stack>
     </>
   );
 }
