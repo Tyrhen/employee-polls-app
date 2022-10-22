@@ -1,7 +1,6 @@
 import PollDetailCard from "../atoms/PollCard";
 
 const PollList = ({ polls, isAnswered }) => {
-  console.log(polls);
   return (
     <>
       {polls.map((poll) => (
