@@ -6,6 +6,15 @@ export const fetchUsers = createAsyncThunk("getUsers", async () => {
   return response;
 });
 
+export const updateQuestionAsked = createAsyncThunk(
+  "updateUsersQuestions",
+  async (payload) => {
+    updateQuestionAsked(payload);
+    const response = await _getUsers();
+    return response;
+  }
+);
+
 const initialState = {
   value: {},
 };
@@ -13,7 +22,16 @@ const initialState = {
 export const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
+  reducers: {
+    updateQuestionsAnswered: (state, action) => {
+      const { authedUser, qid, answer } = action.payload;
+      state.value[authedUser].answers[qid] = answer;
+    },
+    updateQuestionsAsked: (state, action) => {
+      const { author, id } = action.payload;
+      state.value[author].questions.push(id);
+    },
+  },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -24,5 +42,7 @@ export const usersSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
+export const { updateQuestionsAnswered, updateQuestionsAsked } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;

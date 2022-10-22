@@ -10,6 +10,15 @@ export const fetchPolls = createAsyncThunk("getPolls", async () => {
   return response;
 });
 
+export const createNewPoll = createAsyncThunk(
+  "createNewPoll",
+  async (formValues) => {
+    await _saveQuestion(formValues);
+    const response = await _getQuestions();
+    return response;
+  }
+);
+
 const initialState = {
   value: {},
 };
@@ -18,13 +27,10 @@ export const pollsSlice = createSlice({
   name: "polls",
   initialState,
   reducers: {
-    createNewPoll: (state, action) => {
-      _saveQuestion(action.payload);
-      state.value = async () => await _getQuestions();
-    },
     recordPollAnswer: (state, action) => {
+      const { authedUser, qid, answer } = action.payload;
+      state.value[qid][answer].votes.push(authedUser);
       _saveQuestionAnswer(action.payload);
-      state.value = async () => await _getQuestions();
     },
   },
   extraReducers: (builder) => {
@@ -33,10 +39,14 @@ export const pollsSlice = createSlice({
       // Add user to the state array
       state.value = action.payload;
     });
+    builder.addCase(createNewPoll.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.value = action.payload;
+    });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { createNewPoll, recordPollAnswer } = pollsSlice.actions;
+export const { createNewPollUI, recordPollAnswer } = pollsSlice.actions;
 
 export default pollsSlice.reducer;

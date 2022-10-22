@@ -11,6 +11,7 @@ import PollDetail from "../components/molecules/PollDetail";
 import Dashboard from "../components/molecules/Dashboard";
 import Leaderboard from "../components/molecules/Leaderboard";
 import DisplayModeButton from "../components/atoms/DisplayModeButton";
+import PollCreation from "../components/molecules/PollCreation";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/poll/:id" element={<PollDetail />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/add" element={<PollCreation />} />
           </Route>
         </Routes>
       </MantineProvider>

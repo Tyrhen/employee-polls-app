@@ -23,13 +23,15 @@ const Navigation = () => {
         >
           Logout
         </Button>
-        <Button
-          color="blue"
-          variant="outline"
-          style={{ float: "right", marginRight: "10px" }}
-        >
-          Create Poll
-        </Button>
+        <Link to={`/add`}>
+          <Button
+            color="blue"
+            variant="outline"
+            style={{ float: "right", marginRight: "10px" }}
+          >
+            Create Poll
+          </Button>
+        </Link>
         <Link to={`/Leaderboard`}>
           <Button
             color="blue"
