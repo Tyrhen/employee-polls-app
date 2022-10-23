@@ -1,56 +1,50 @@
-import { Button } from "@mantine/core";
-import { useDispatch } from "react-redux";
-import { logOutUser } from "../../redux/reducers/authUserReducer";
+import { ActionIcon, Grid } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { IconStairs, IconHome, IconPlus, IconLogout } from "@tabler/icons";
 
-const Navigation = () => {
-  const dispatch = useDispatch();
+const Navigation = ({ handleLogout }) => {
   const authUser = useSelector((state) => state.authUser.value);
-
-  const handleLogout = () => {
-    dispatch(logOutUser());
-  };
 
   if (authUser) {
     return (
-      <>
-        <Button
-          onClick={handleLogout}
-          color="red"
-          variant="outline"
-          style={{ float: "right", marginRight: "10px" }}
-        >
-          Logout
-        </Button>
-        <Link to={`/add`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
+      <Grid>
+        <Grid.Col span="auto">
+          <ActionIcon data-testid="homeIcon" component={Link} to="/" size="xl">
+            <IconHome size={36} />
+          </ActionIcon>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <ActionIcon
+            data-testid="leaderboardIcon"
+            component={Link}
+            to="/leaderboard"
+            size="xl"
           >
-            Create Poll
-          </Button>
-        </Link>
-        <Link to={`/Leaderboard`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
+            <IconStairs size={36} />
+          </ActionIcon>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <ActionIcon
+            data-testid="newPollIcon"
+            component={Link}
+            to="/add"
+            size="xl"
           >
-            Leaderboard
-          </Button>
-        </Link>
-        <Link to={`/`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
+            <IconPlus size={36} />
+          </ActionIcon>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <ActionIcon
+            data-testid="logoutIcon"
+            size="xl"
+            onClick={handleLogout}
+            color="red"
           >
-            Home
-          </Button>
-        </Link>
-      </>
+            <IconLogout size={36} />
+          </ActionIcon>
+        </Grid.Col>
+      </Grid>
     );
   }
   return null;

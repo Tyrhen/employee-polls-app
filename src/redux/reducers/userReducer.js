@@ -35,7 +35,6 @@ export const usersSlice = createSlice({
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      // Add user to the state array
       state.value = action.payload;
     });
   },
