@@ -1,4 +1,4 @@
-import { Container, Text, Title, Space, Button } from "@mantine/core";
+import { Container, Text, Title, Space } from "@mantine/core";
 import { IconAdjustmentsHorizontal, IconAdjustmentsAlt } from "@tabler/icons";
 import VoteResult from "../atoms/VoteResult";
 

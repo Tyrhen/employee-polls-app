@@ -1,5 +1,4 @@
-import { Button, Text, Stack, Grid, Title } from "@mantine/core";
-import AvatarProfile from "../atoms/AvatarProfile";
+import { Button, Text, Stack, Title } from "@mantine/core";
 
 const UnansweredPoll = ({ handlePollVote, poll }) => {
   return (
