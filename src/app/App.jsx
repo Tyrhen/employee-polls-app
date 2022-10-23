@@ -49,10 +49,10 @@ export default function App() {
             align="center"
             style={{ paddingTop: "5px" }}
           >
-            <Grid.Col span={4}>
+            <Grid.Col span="auto">
               <DisplayModeButton />
             </Grid.Col>
-            <Grid.Col span={4}>
+            <Grid.Col span="auto">
               <Navigation handleLogout={handleLogout} />
             </Grid.Col>
           </Grid>
@@ -61,7 +61,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/poll/:id" element={<PollDetail />} />
+            <Route path="/questions/:id" element={<PollDetail />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/add" element={<PollCreation />} />
           </Route>

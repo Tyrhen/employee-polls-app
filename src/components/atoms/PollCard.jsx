@@ -26,11 +26,18 @@ const PollCard = ({ id, author, isAnswered, preview, timestamp }) => {
           <br />
           <b> OR 🧐🍿...</b>
         </Text>
-        <Link to={`/poll/${id}`}>
-          <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-            Show
-          </Button>
-        </Link>
+
+        <Button
+          variant="light"
+          color="blue"
+          fullWidth
+          mt="md"
+          radius="md"
+          component={Link}
+          to={`/questions/${id}`}
+        >
+          Show
+        </Button>
       </Card>
       <Space h="md" />
     </>
