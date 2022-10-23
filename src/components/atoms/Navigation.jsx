@@ -17,27 +17,20 @@ const Navigation = () => {
     return (
       <Grid>
         <Grid.Col span="auto">
-          <Link to={`/`}>
-            <ActionIcon size="xl">
-              <IconHome size={36} />
-            </ActionIcon>
-          </Link>
+          <ActionIcon component={Link} to="/" size="xl">
+            <IconHome size={36} />
+          </ActionIcon>
         </Grid.Col>
         <Grid.Col span="auto">
-          <Link to={`/Leaderboard`}>
-            <ActionIcon size="xl">
-              <IconStairs size={36} />
-            </ActionIcon>
-          </Link>
+          <ActionIcon component={Link} to="/Leaderboard" size="xl">
+            <IconStairs size={36} />
+          </ActionIcon>
         </Grid.Col>
         <Grid.Col span="auto">
-          <Link to={`/add`}>
-            <ActionIcon size="xl">
-              <IconPlus size={36} />
-            </ActionIcon>
-          </Link>
+          <ActionIcon component={Link} to="/add" size="xl">
+            <IconPlus size={36} />
+          </ActionIcon>
         </Grid.Col>
-
         <Grid.Col span="auto">
           <ActionIcon size="xl" onClick={handleLogout} color="red">
             <IconLogout size={36} />
