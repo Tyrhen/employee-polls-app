@@ -1,17 +1,10 @@
 import { ActionIcon, Grid } from "@mantine/core";
-import { useDispatch } from "react-redux";
-import { logOutUser } from "../../redux/reducers/authUserReducer";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IconStairs, IconHome, IconPlus, IconLogout } from "@tabler/icons";
 
-const Navigation = () => {
-  const dispatch = useDispatch();
+const Navigation = ({ handleLogout }) => {
   const authUser = useSelector((state) => state.authUser.value);
-
-  const handleLogout = () => {
-    dispatch(logOutUser());
-  };
 
   if (authUser) {
     return (
@@ -25,19 +18,29 @@ const Navigation = () => {
           <ActionIcon
             data-testid="leaderboardIcon"
             component={Link}
-            to="/Leaderboard"
+            to="/leaderboard"
             size="xl"
           >
             <IconStairs size={36} />
           </ActionIcon>
         </Grid.Col>
         <Grid.Col span="auto">
-          <ActionIcon component={Link} to="/add" size="xl">
+          <ActionIcon
+            data-testid="newPollIcon"
+            component={Link}
+            to="/add"
+            size="xl"
+          >
             <IconPlus size={36} />
           </ActionIcon>
         </Grid.Col>
         <Grid.Col span="auto">
-          <ActionIcon size="xl" onClick={handleLogout} color="red">
+          <ActionIcon
+            data-testid="logoutIcon"
+            size="xl"
+            onClick={handleLogout}
+            color="red"
+          >
             <IconLogout size={36} />
           </ActionIcon>
         </Grid.Col>

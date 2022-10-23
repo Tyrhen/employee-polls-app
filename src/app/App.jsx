@@ -17,15 +17,21 @@ import Dashboard from "../components/molecules/Dashboard";
 import Leaderboard from "../components/molecules/Leaderboard";
 import DisplayModeButton from "../components/atoms/DisplayModeButton";
 import PollCreation from "../components/molecules/PollCreation";
+import { logOutUser } from "../redux/reducers/authUserReducer";
 
 export default function App() {
   const dispatch = useDispatch();
+
   dispatch(fetchPolls());
   dispatch(fetchUsers());
 
   const [colorScheme, setColorScheme] = useState("dark");
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
+  const handleLogout = () => {
+    dispatch(logOutUser());
+  };
 
   return (
     <ColorSchemeProvider
@@ -47,7 +53,7 @@ export default function App() {
               <DisplayModeButton />
             </Grid.Col>
             <Grid.Col span={4}>
-              <Navigation />
+              <Navigation handleLogout={handleLogout} />
             </Grid.Col>
           </Grid>
         </Header>
