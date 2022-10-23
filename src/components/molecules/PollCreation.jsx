@@ -40,13 +40,13 @@ const PollCreation = () => {
 
   return (
     <Box>
-      <Title order={1}>Create New Poll</Title>
+      <Title order={1}> New Poll</Title>
       <Space h="lg" />
       <Stack align="center">
         <Title order={2}>Would You Rather</Title>
         <Text size="sm" color="dimmed">
           {" "}
-          Create two options for a new Poll!
+          Create two options for people to vote on!
         </Text>
         <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
           <TextInput
