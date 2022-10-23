@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Table } from "@mantine/core";
+import { Table, Title, Space } from "@mantine/core";
 import AvatarProfile from "../atoms/AvatarProfile";
 
 const Leaderboard = () => {
@@ -33,7 +33,8 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <h2>Leaderboard</h2>
+      <Title order={1}>Leaderboard</Title>
+      <Space h="lg" />
       <Table highlightOnHover verticalSpacing="md">
         <thead>
           <tr>

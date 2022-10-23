@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Tabs } from "@mantine/core";
+import { Tabs, Title, Space } from "@mantine/core";
 import { IconCircleDashed, IconCircleCheck } from "@tabler/icons";
 import PollList from "./PollList";
 
@@ -27,7 +27,8 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h2>Welcome, {authUser}!</h2>
+      <Title order={1}>Welcome, {authUser}!</Title>
+      <Space h="lg" />
       <Tabs defaultValue="unanswered">
         <Tabs.List>
           <Tabs.Tab value="unanswered" icon={<IconCircleDashed size={14} />}>
