@@ -184,7 +184,7 @@ export function _saveQuestion(question) {
         ...users,
         [question.author]: {
           ...users[question.author],
-          questions: users[question.author].questions.concat([
+          questions: users[question.author]?.questions.concat([
             formattedQuestion.id,
           ]),
         },
@@ -193,7 +193,7 @@ export function _saveQuestion(question) {
       resolve(formattedQuestion);
     }, 1000);
 
-    return formattedQuestion.id;
+    return formattedQuestion;
   });
 }
 
@@ -228,5 +228,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
 
       resolve(true);
     }, 500);
+
+    return true;
   });
 }
