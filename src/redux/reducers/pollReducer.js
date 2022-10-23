@@ -36,11 +36,9 @@ export const pollsSlice = createSlice({
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchPolls.fulfilled, (state, action) => {
-      // Add user to the state array
       state.value = action.payload;
     });
     builder.addCase(createNewPoll.fulfilled, (state, action) => {
-      // Add user to the state array
       state.value = action.payload;
     });
   },

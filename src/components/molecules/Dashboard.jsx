@@ -11,14 +11,12 @@ export default function Dashboard() {
     .map((id) => polls[id])
     .sort((a, b) => b.timestamp - a.timestamp);
 
-  //seperate polls into answered and unanswered
   const answeredPolls = pollsArray.filter(
     (poll) =>
       poll.optionOne.votes.includes(authUser) ||
       poll.optionTwo.votes.includes(authUser)
   );
 
-  //seperate polls into answered and unanswered
   const unansweredPolls = pollsArray.filter(
     (poll) =>
       !poll.optionOne.votes.includes(authUser) &&
