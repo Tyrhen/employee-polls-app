@@ -190,8 +190,6 @@ export function _saveQuestion(question) {
         },
       };
 
-      console.log(users[question.author]);
-
       resolve(formattedQuestion);
     }, 1000);
 
