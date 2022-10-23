@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { MantineProvider, ColorSchemeProvider, Header } from "@mantine/core";
+import {
+  MantineProvider,
+  ColorSchemeProvider,
+  Header,
+  Grid,
+} from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { fetchPolls } from "../redux/reducers/pollReducer";
 import { fetchUsers } from "../redux/reducers/userReducer";
@@ -32,9 +37,19 @@ export default function App() {
         withGlobalStyles
         withNormalizeCSS
       >
-        <Header height={50}>
-          <Navigation />
-          <DisplayModeButton />
+        <Header height={60}>
+          <Grid
+            justify="space-between"
+            align="center"
+            style={{ paddingTop: "5px" }}
+          >
+            <Grid.Col span={4}>
+              <DisplayModeButton />
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Navigation />
+            </Grid.Col>
+          </Grid>
         </Header>
         <Routes>
           <Route path="/login" element={<Login />} />

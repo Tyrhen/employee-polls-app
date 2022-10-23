@@ -10,6 +10,7 @@ export default function DisplayModeButton() {
       variant="outline"
       color={dark ? "yellow" : "blue"}
       onClick={() => toggleColorScheme()}
+      size="lg"
       title="Toggle color scheme"
     >
       {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}

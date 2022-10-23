@@ -1,8 +1,9 @@
-import { Button } from "@mantine/core";
+import { ActionIcon, Grid } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../redux/reducers/authUserReducer";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { IconStairs, IconHome, IconPlus, IconLogout } from "@tabler/icons";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -14,43 +15,35 @@ const Navigation = () => {
 
   if (authUser) {
     return (
-      <>
-        <Button
-          onClick={handleLogout}
-          color="red"
-          variant="outline"
-          style={{ float: "right", marginRight: "10px" }}
-        >
-          Logout
-        </Button>
-        <Link to={`/add`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
-          >
-            Create Poll
-          </Button>
-        </Link>
-        <Link to={`/Leaderboard`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
-          >
-            Leaderboard
-          </Button>
-        </Link>
-        <Link to={`/`}>
-          <Button
-            color="blue"
-            variant="outline"
-            style={{ float: "right", marginRight: "10px" }}
-          >
-            Home
-          </Button>
-        </Link>
-      </>
+      <Grid>
+        <Grid.Col span="auto">
+          <Link to={`/`}>
+            <ActionIcon size="xl">
+              <IconHome size={36} />
+            </ActionIcon>
+          </Link>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <Link to={`/Leaderboard`}>
+            <ActionIcon size="xl">
+              <IconStairs size={36} />
+            </ActionIcon>
+          </Link>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          <Link to={`/add`}>
+            <ActionIcon size="xl">
+              <IconPlus size={36} />
+            </ActionIcon>
+          </Link>
+        </Grid.Col>
+
+        <Grid.Col span="auto">
+          <ActionIcon size="xl" onClick={handleLogout} color="red">
+            <IconLogout size={36} />
+          </ActionIcon>
+        </Grid.Col>
+      </Grid>
     );
   }
   return null;
