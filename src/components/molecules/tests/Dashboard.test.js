@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Dashboard from "../Dashboard";
 import { Provider } from "react-redux";
 import React from "react";
@@ -24,7 +24,35 @@ describe("When the dashboard is rendered", () => {
     );
 
     render(tree);
+
+    const unansweredTab = screen.getByTestId("unansweredTab");
+    const answeredTab = screen.getByTestId("answeredTab");
+
     //assert
-    // expect(screen.getByText("Would you rather...")).toBeInTheDocument();
+    expect(unansweredTab).toHaveAttribute("aria-selected", "true");
+    expect(answeredTab).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("should render the answered polls when the 'answered' tab is clicked", () => {
+    //arrange
+    const tree = (
+      <MemoryRouter>
+        <Provider store={store}>
+          <Dashboard />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    render(tree);
+
+    const unansweredTab = screen.getByTestId("unansweredTab");
+    const answeredTab = screen.getByTestId("answeredTab");
+
+    //act
+    fireEvent.click(answeredTab);
+
+    //assert
+    expect(unansweredTab).toHaveAttribute("aria-selected", "false");
+    expect(answeredTab).toHaveAttribute("aria-selected", "true");
   });
 });
