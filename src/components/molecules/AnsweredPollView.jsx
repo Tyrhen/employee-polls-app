@@ -1,4 +1,4 @@
-import { Container, Text, Title, Space } from "@mantine/core";
+import { Container, Title, Space } from "@mantine/core";
 import { IconAdjustmentsHorizontal, IconAdjustmentsAlt } from "@tabler/icons";
 import VoteResult from "../atoms/VoteResult";
 
@@ -24,6 +24,7 @@ const AnsweredPollView = ({
             altOptionVotes={optionTwoVotes}
             color="green"
             icon={<IconAdjustmentsHorizontal />}
+            userVotedForOption={authUserVote.vote === "optionOne"}
           />
           <Space h="md" />
           <VoteResult
@@ -32,13 +33,8 @@ const AnsweredPollView = ({
             altOptionVotes={optionOneVotes}
             color="blue"
             icon={<IconAdjustmentsAlt />}
+            userVotedForOption={authUserVote.vote === "optionTwo"}
           />
-          <Text color="dimmed">
-            You voted for{" "}
-            {authUserVote.vote === "optionOne"
-              ? `option 1: ${poll?.optionOne.text}!`
-              : `option 2: ${poll?.optionTwo.text}!`}
-          </Text>
         </div>
       </Container>
     </div>
