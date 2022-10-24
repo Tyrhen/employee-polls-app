@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When rendering the navigation should look beautiful 1`] = `
+<div
+  className="mantine-Grid-root mantine-nsdj"
+>
+  <div
+    className="mantine-Col-root mantine-goz9ys"
+  >
+    <a
+      className="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-148qk9j"
+      data-testid="homeIcon"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="icon icon-tabler icon-tabler-home"
+        fill="none"
+        height={36}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        width={36}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+          stroke="none"
+        />
+        <polyline
+          points="5 12 3 12 12 3 21 12 19 12"
+        />
+        <path
+          d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"
+        />
+        <path
+          d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"
+        />
+      </svg>
+    </a>
+  </div>
+  <div
+    className="mantine-Col-root mantine-goz9ys"
+  >
+    <a
+      className="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-1gt4tw0"
+      data-testid="leaderboardIcon"
+      href="/leaderboard"
+      onClick={[Function]}
+    >
+      <svg
+        className="icon icon-tabler icon-tabler-stairs"
+        fill="none"
+        height={36}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        width={36}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+          stroke="none"
+        />
+        <path
+          d="M4 18h4v-4h4v-4h4v-4h4"
+        />
+      </svg>
+    </a>
+  </div>
+  <div
+    className="mantine-Col-root mantine-goz9ys"
+  >
+    <a
+      className="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-ciwzgw"
+      data-testid="newPollIcon"
+      href="/add"
+      onClick={[Function]}
+    >
+      <svg
+        className="icon icon-tabler icon-tabler-plus"
+        fill="none"
+        height={36}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        width={36}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+          stroke="none"
+        />
+        <line
+          x1={12}
+          x2={12}
+          y1={5}
+          y2={19}
+        />
+        <line
+          x1={5}
+          x2={19}
+          y1={12}
+          y2={12}
+        />
+      </svg>
+    </a>
+  </div>
+  <div
+    className="mantine-Col-root mantine-goz9ys"
+  >
+    <button
+      className="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-akokz4"
+      data-testid="logoutIcon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        className="icon icon-tabler icon-tabler-logout"
+        fill="none"
+        height={36}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        width={36}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+          stroke="none"
+        />
+        <path
+          d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
+        />
+        <path
+          d="M7 12h14l-3 -3m0 6l3 -3"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
