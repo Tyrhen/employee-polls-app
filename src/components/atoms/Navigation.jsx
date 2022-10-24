@@ -10,7 +10,13 @@ const Navigation = ({ handleLogout }) => {
     return (
       <Grid>
         <Grid.Col span="auto">
-          <ActionIcon data-testid="homeIcon" component={Link} to="/" size="xl">
+          <ActionIcon
+            color="blue"
+            data-testid="homeIcon"
+            component={Link}
+            to="/"
+            size="xl"
+          >
             <IconHome size={36} />
           </ActionIcon>
         </Grid.Col>
@@ -20,6 +26,7 @@ const Navigation = ({ handleLogout }) => {
             component={Link}
             to="/leaderboard"
             size="xl"
+            color="violet"
           >
             <IconStairs size={36} />
           </ActionIcon>
@@ -30,6 +37,7 @@ const Navigation = ({ handleLogout }) => {
             component={Link}
             to="/add"
             size="xl"
+            color="green"
           >
             <IconPlus size={36} />
           </ActionIcon>
