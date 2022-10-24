@@ -4,6 +4,7 @@ import Navigation from "../Navigation";
 import { MemoryRouter } from "react-router";
 import mockStore from "../../../mocks/MockStore";
 import createTestStore from "../../../utils/CreateTestStore";
+import renderer from "react-test-renderer";
 
 let store;
 beforeEach(() => {
@@ -64,5 +65,21 @@ describe("When navigation is shown", () => {
 
     fireEvent.click(logoutIcon);
     expect(mockHandleLogout).toHaveBeenCalled();
+  });
+});
+
+describe("When rendering the navigation", () => {
+  it("should look beautiful", () => {
+    let tree = (
+      <MemoryRouter>
+        <Provider store={store}>
+          <Navigation handleLogout={() => jest.fn()} />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    const component = renderer.create(tree).toJSON();
+
+    expect(component).toMatchSnapshot();
   });
 });
