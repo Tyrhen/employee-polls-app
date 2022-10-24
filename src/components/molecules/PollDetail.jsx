@@ -8,6 +8,7 @@ import UnansweredPoll from "./UnansweredPollView";
 import AnsweredPollView from "./AnsweredPollView";
 import "../../css/App.css";
 import AvatarProfile from "../atoms/AvatarProfile";
+import NotFound from "../atoms/NotFound";
 
 const PollDetail = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const PollDetail = () => {
 
   if (Object.keys(polls).length === 0) return <Loader />;
   const poll = polls[id] ? polls[id] : undefined;
-  if (poll === undefined) return <>404</>;
+  if (poll === undefined) return <NotFound />;
 
   const handlePollVote = (event) => {
     const answer = event.currentTarget.id;

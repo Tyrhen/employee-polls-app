@@ -18,6 +18,7 @@ import Leaderboard from "../components/molecules/Leaderboard";
 import DisplayModeButton from "../components/atoms/DisplayModeButton";
 import PollCreation from "../components/molecules/PollCreation";
 import { logOutUser } from "../redux/reducers/authUserReducer";
+import NotFound from "../components/atoms/NotFound";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ export default function App() {
             <Route path="/questions/:id" element={<PollDetail />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/add" element={<PollCreation />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </MantineProvider>
