@@ -1,6 +1,6 @@
 import { Button, Select, TextInput, Stack, Grid } from "@mantine/core";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   IconAdjustmentsHorizontal,
@@ -17,6 +17,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
+  const { state } = useLocation();
 
   const options = Object.keys(users).map((user) => ({
     label: users[user].name,
@@ -26,7 +27,7 @@ export default function Login() {
   const handlePasswordValidation = () => {
     if (passwordValue === users[selectValue].password) {
       dispatch(loginUser(selectValue));
-      navigate("/");
+      navigate(state?.path || "/");
     } else {
       alert("Wrong password");
     }

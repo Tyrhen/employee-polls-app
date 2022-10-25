@@ -5,8 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "../src/utils/reportWebVitals";
 import { createRoot } from "react-dom/client";
 import "./css/index.css";
-import { persistor, store } from "./redux/store";
-import { PersistGate } from "redux-persist/integration/react";
+import { store } from "./redux/store";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -15,9 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
+        <App />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
